@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName ="Status",menuName = "CreateCharacterStatus")]
-public class StatuaData : ScriptableObject
+public class StatusData : ScriptableObject
 {
     [SerializeField]
     public int Maxhp = 100;
