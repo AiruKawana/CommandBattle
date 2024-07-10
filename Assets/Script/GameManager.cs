@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public UIManager UiMg;
 
     [SerializeField] private bool playerTurn;
     private int playerMoveCounter;
@@ -12,16 +12,36 @@ public class GameManager : MonoBehaviour
     Player playercs;
     public int PLHP;
     public int PLSP;
-    private GameObject PlayerObj;
+    public GameObject PlayerObj;
 
     Enemy enemycs;
     public int ENHP;
-    private GameObject EnemyObj;
+    public GameObject EnemyObj;
+
+    private int damage;
     // Start is called before the first frame update
     void Start()
     {
         playerTurn = true;
         playerMoveCounter = 0;
+
+        playercs = this.gameObject.GetComponent<Player>();
+      // PLHP = playercs.playerHp;
+       //PLSP = playercs.playerSp;
+
+        enemycs = this.gameObject.GetComponent<Enemy>();
+       // ENHP = enemycs.enemyHp;
+    }
+
+    public void AttackEnemy()
+    {
+        damage = Random.Range(1, 15);
+        if(damage > 1)
+        {
+            //ìGÇÃHP - DamageÇÃãLèq
+            damage = 0;
+        }
+        Debug.Log(damage);
     }
 
     public void PlayerTurnEnd()
@@ -41,21 +61,16 @@ public class GameManager : MonoBehaviour
     {
         if(playerTurn == true)
         {
-            playercs = this.gameObject.GetComponent<Player>();
-            PLHP = playercs.playerHp;
-            PLSP = playercs.playerSp;
             if(playerMoveCounter == 0 || PLHP > 0)
             {
-                UIManager.instance.PlayerTurn();
+                UiMg.PlayerTurn();
             }
         }
         if(playerTurn == false)
         {
-            enemycs = this.gameObject.GetComponent<Enemy>();
-            ENHP = enemycs.enemyHp;
+            UiMg.EnemyTurn();
             if(playerMoveCounter == 1 || PLHP > 0)
             {
-                UIManager.instance.EnemyTurn();
                 enemycs.AttackPlayer();
             }
         }

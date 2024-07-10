@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class OnAttackButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameManager gm;
+    public void OnClickAttackButton()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gm.AttackEnemy();
+        //gm.PlayerTurnEnd();
     }
 }

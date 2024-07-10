@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 543759364}
   - component: {fileID: 543759363}
   - component: {fileID: 543759362}
+  - component: {fileID: 543759365}
   m_Layer: 5
   m_Name: Attack
   m_TagString: Untagged
@@ -564,7 +565,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 543759363}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 543759365}
+        m_TargetAssemblyTypeName: OnAttackButton, Assembly-CSharp
+        m_MethodName: OnClickAttackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &543759363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,6 +616,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543759360}
   m_CullTransparentMesh: 1
+--- !u!114 &543759365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543759360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79d4283253835b4eaab176173cce192, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 1536737048}
 --- !u!1 &566328063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,8 +1323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusData: {fileID: 11400000, guid: 512d559d3f54e6449a29441fb6ce2268, type: 2}
-  playerHp: 0
-  playerSp: 0
+  playerHp: 100
+  playerSp: 25
 --- !u!1 &1536737046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1335,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1536737047}
   - component: {fileID: 1536737048}
+  - component: {fileID: 1536737049}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -1343,10 +1370,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930a45d1db1e29d449bac5eaae963756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTrue: 0
+  UiMg: {fileID: 1536737049}
+  playerTurn: 1
   PLHP: 0
   PLSP: 0
+  PlayerObj: {fileID: 1311909810}
   ENHP: 0
+  EnemyObj: {fileID: 1767268257}
+--- !u!114 &1536737049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536737046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ca4409dc75f36408fab82380db744d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackButton: {fileID: 543759360}
+  skillButton: {fileID: 1301589103}
+  toolButton: {fileID: 141638428}
 --- !u!1 &1767268257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1404,7 @@ GameObject:
   - component: {fileID: 1767268260}
   - component: {fileID: 1767268259}
   - component: {fileID: 1767268258}
+  - component: {fileID: 1767268262}
   m_Layer: 0
   m_Name: EnemyCharacter
   m_TagString: Untagged
@@ -1452,6 +1498,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1767268262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767268257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b327c0646b880645a5aba73f519a4be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusdata: {fileID: 11400000, guid: 6af64c8851a290743b2707cd3eff4066, type: 2}
+  enemyHp: 100
 --- !u!1 &1874338467
 GameObject:
   m_ObjectHideFlags: 0

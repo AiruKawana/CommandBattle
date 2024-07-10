@@ -13,15 +13,15 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHp = statusData.Hp;
-        playerSp = statusData.Sp;
-        MyItem();
+       playerHp = statusData.Hp;
+       playerSp = statusData.Sp;
+        //MyItem();
     }
 
-    public void AttackEnemy()
-    {
-        
-    }
+   // public void AttackEnemy()
+    //{
+     //   
+   // }
 
     public void Skill()
     {

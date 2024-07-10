@@ -13,9 +13,12 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attackButton.SetActive(false);
-        skillButton.SetActive(false);
-        toolButton.SetActive(false);
+        //attackButton.SetActive(false);
+        //skillButton.SetActive(false);
+        //toolButton.SetActive(false);
+        attackButton.SetActive(true);
+        skillButton.SetActive(true);
+        toolButton.SetActive(true);
     }
     public void PlayerTurn()
     {
