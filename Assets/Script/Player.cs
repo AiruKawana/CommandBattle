@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private StatusData statusData;
 
-    [SerializeField] private int playerHp;
-    [SerializeField] private int playerSp;
+    [SerializeField] public int playerHp;
+    [SerializeField] public int playerSp;
     private int skillCount = 0;
     private int itemCount = 5;
     // Start is called before the first frame update
