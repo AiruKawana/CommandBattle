@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public GameObject EnemyObj;
 
     private int damage;
+    private int x = 1;
+    private int y = 15;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void AttackEnemy()
     {
-        damage = Random.Range(1, 15);
+        damage = Random.Range(x, y);
         if(damage > 1)
         {
             //“G‚ÌHP - Damage‚Ì‹Lq
