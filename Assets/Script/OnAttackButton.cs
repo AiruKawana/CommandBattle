@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class OnAttackButton : MonoBehaviour
 {
-    public GameManager gm;
-    public UIManager UIMg;
+    public GameManager GM;
+    public UIManager UIMG;
     public void OnClickAttackButton()
     {
-        UIMg.AttackEnemy();
+        UIMG.minusEnemyHp();
         //gm.AttackEnemy();
         //gm.PlayerTurnEnd();
     }

@@ -1644,7 +1644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930a45d1db1e29d449bac5eaae963756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UiMg: {fileID: 1536737049}
+  UIMG: {fileID: 1536737049}
   playerTurn: 1
   playercs: {fileID: 1311909815}
   PLHP: 0
@@ -1807,8 +1807,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b327c0646b880645a5aba73f519a4be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusdata: {fileID: 11400000, guid: 6af64c8851a290743b2707cd3eff4066, type: 2}
+  GM: {fileID: 1536737048}
+  UIMG: {fileID: 1536737049}
   enemyHp: 100
+  playerHp: 0
 --- !u!1 &1874338467
 GameObject:
   m_ObjectHideFlags: 0

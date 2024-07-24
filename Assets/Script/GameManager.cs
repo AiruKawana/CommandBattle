@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public UIManager UiMg;
+    public UIManager UIMG;
 
     [SerializeField] private bool playerTurn;
     private int playerMoveCounter;
@@ -27,9 +27,9 @@ public class GameManager : MonoBehaviour
         playerTurn = true;
         playerMoveCounter = 0;
 
-        PLHP = 100;
-        PLSP = 25;
-        ENHP = 100;
+        PLHP = UIMG.playerHp;
+        PLSP = UIMG.playerSp;
+        ENHP = UIMG.enemyHp;
         //playercs = this.gameObject.GetComponent<Player>();
         // PLHP = playercs.playerHp;
         //PLSP = playercs.playerSp;
@@ -54,32 +54,32 @@ public class GameManager : MonoBehaviour
     {
         playerMoveCounter = 1;
         playerTurn = false;
+        if (playerTurn == false)
+        {
+            UIMG.EnemyTurn();
+            if (playerMoveCounter == 1 && PLHP > 0)
+            {
+                enemycs.AttackPlayer();
+            }
+        }
     }
 
     public void EnemyTurnEnd()
     {
         playerMoveCounter = 0;
         playerTurn = true;
+        if (playerTurn == true)
+        {
+            if (playerMoveCounter == 0 && PLHP > 0)
+            {
+                UIMG.PlayerTurn();
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        //アップデート内でターンの切り替えをしてはいけない為、別のvoidをつくるべし
-        if(playerTurn == true)
-        {
-            if(playerMoveCounter == 0 || PLHP > 0)
-            {
-                UiMg.PlayerTurn();
-            }
-        }
-        if(playerTurn == false)
-        {
-            UiMg.EnemyTurn();
-            if(playerMoveCounter == 1 || PLHP > 0)
-            {
-                //enemycs.AttackPlayer();
-            }
-        }
+       
     }
 }

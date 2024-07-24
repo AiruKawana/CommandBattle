@@ -5,6 +5,14 @@ using UnityEngine;
 public class OnToolButton : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public GameManager GM;
+    public UIManager UIMG;
+    public void OnClickToolButton()
+    {
+        UIMG.PushToolButton();
+    }
+
     void Start()
     {
         

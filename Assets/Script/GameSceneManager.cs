@@ -16,6 +16,11 @@ public class GameSceneManager : MonoBehaviour
         SceneManager.LoadScene("VictoryTextScene");
     }
 
+    public void LoseScene()
+    {
+        SceneManager.LoadScene("LoseTextScene");
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] StatusData statusdata;
+    // [SerializeField] StatusData statusdata;
+    public GameManager GM;
+    public UIManager UIMG;
 
     [SerializeField] public int enemyHp;
-    
+
+    [SerializeField] public int playerHp;
 
     private void Start()
     {
-        enemyHp = statusdata.Hp;
+        enemyHp = GM.ENHP;
+        playerHp = GM.PLHP;
     }
 
     public void AttackPlayer()
     {
-        Debug.Log("プレイヤーに攻撃");
+        UIMG.minusPlayerHp();
+      // Debug.Log("プレイヤーに攻撃");
     }
 }

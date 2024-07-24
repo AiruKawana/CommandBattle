@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -24,20 +24,17 @@ public class UIManager : MonoBehaviour
 
     public int damage;
     private int x = 1;
-    private int y = 15;
+    private int y = 30;
     // Start is called before the first frame update
     void Start()
     {
-        //attackButton.SetActive(false);
-        //skillButton.SetActive(false);
-        //toolButton.SetActive(false);
         attackButton.SetActive(true);
         skillButton.SetActive(true);
         toolButton.SetActive(true);
 
-        playerHp = GM.PLHP;
-        playerSp = GM.PLSP;
-        enemyHp = GM.ENHP;
+        playerHp = 100;
+        playerSp = 25;
+        enemyHp = 100;
 
         MyHP_Text.text = "HP:" + playerHp;
         MySP_Text.text = "SP:" + playerSp;
@@ -50,16 +47,36 @@ public class UIManager : MonoBehaviour
         toolButton.SetActive(true);
     }
 
-    public void AttackEnemy()
+    public void minusEnemyHp()
     {
         damage = Random.Range(x, y);
-        if (damage > 1)
+        if (damage >= 1)
         {
             enemyHp -= damage;
+            Debug.Log("Playerの攻撃：" + damage + "ダメージ");
             GM.PlayerTurnEnd();
         }
     }
+
     public void EnemyTurn()
+    {
+        attackButton.SetActive(false);
+        skillButton.SetActive(false);
+        toolButton.SetActive(false);
+    }
+
+    public void minusPlayerHp()
+    {
+        damage = Random.Range(x, y);
+        if(damage >= 1)
+        {
+            playerHp -= damage;
+            Debug.Log("敵の攻撃：" + damage + "ダメージ");
+            GM.EnemyTurnEnd();
+        }
+    }
+
+    public void PushToolButton()
     {
         attackButton.SetActive(false);
         skillButton.SetActive(false);
@@ -72,11 +89,16 @@ public class UIManager : MonoBehaviour
         MySP_Text.text = "SP:" + playerSp;
         EnemyHP_Text.text = "HP:" + enemyHp;
 
-        if(enemyHp < 0)
+        if(enemyHp < 0 || enemyHp == 0)
         {
             enemyHp = 0;
             GSM.VictoryScene();
             //勝利画面シーンへの移項
+        }
+        if(playerHp < 0 || playerHp == 0)
+        {
+            playerHp = 0;
+            GSM.LoseScene();
         }
     }
 }
