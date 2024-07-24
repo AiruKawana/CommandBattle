@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] public int playerSp;
     private int skillCount = 0;
     private int itemCount = 5;
+
+    public int damage;
+    private int x = 1;
+    private int y = 15;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +21,15 @@ public class Player : MonoBehaviour
        playerSp = statusData.Sp;
         //MyItem();
     }
-
    // public void AttackEnemy()
     //{
-     //   
+       // damage = Random.Range(x, y);
+        //if (damage > 1)
+        //{
+            //“G‚ÌHP - Damage‚Ì‹Lq
+            //damage = 0;
+       // }
+        //Debug.Log(damage);
    // }
 
     public void Skill()

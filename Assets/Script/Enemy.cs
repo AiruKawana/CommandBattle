@@ -16,6 +16,6 @@ public class Enemy : MonoBehaviour
 
     public void AttackPlayer()
     {
-
+        Debug.Log("ƒvƒŒƒCƒ„[‚ÉUŒ‚");
     }
 }

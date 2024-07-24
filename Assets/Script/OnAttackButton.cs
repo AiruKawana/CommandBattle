@@ -5,9 +5,11 @@ using UnityEngine;
 public class OnAttackButton : MonoBehaviour
 {
     public GameManager gm;
+    public UIManager UIMg;
     public void OnClickAttackButton()
     {
-        gm.AttackEnemy();
+        UIMg.AttackEnemy();
+        //gm.AttackEnemy();
         //gm.PlayerTurnEnd();
     }
 }

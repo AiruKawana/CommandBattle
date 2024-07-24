@@ -9,42 +9,46 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool playerTurn;
     private int playerMoveCounter;
 
-    Player playercs;
+    public Player playercs;
     public int PLHP;
     public int PLSP;
     public GameObject PlayerObj;
 
-    Enemy enemycs;
+     public Enemy enemycs;
     public int ENHP;
     public GameObject EnemyObj;
 
-    private int damage;
-    private int x = 1;
-    private int y = 15;
+    //private int damage;
+    //private int x = 1;
+    //private int y = 15;
     // Start is called before the first frame update
     void Start()
     {
         playerTurn = true;
         playerMoveCounter = 0;
 
-        playercs = this.gameObject.GetComponent<Player>();
-      // PLHP = playercs.playerHp;
-       //PLSP = playercs.playerSp;
+        PLHP = 100;
+        PLSP = 25;
+        ENHP = 100;
+        //playercs = this.gameObject.GetComponent<Player>();
+        // PLHP = playercs.playerHp;
+        //PLSP = playercs.playerSp;
 
-        enemycs = this.gameObject.GetComponent<Enemy>();
-       // ENHP = enemycs.enemyHp;
+        //enemycs = this.gameObject.GetComponent<Enemy>();
+        // ENHP = enemycs.enemyHp;
     }
 
-    public void AttackEnemy()
-    {
-        damage = Random.Range(x, y);
-        if(damage > 1)
-        {
+    //UIマネージャーの管轄の疑いにつき、一旦コメントアウト
+    //public void AttackEnemy()
+    //{
+       // damage = Random.Range(x, y);
+        //if(damage > 1)
+        //{
             //敵のHP - Damageの記述
-            damage = 0;
-        }
-        Debug.Log(damage);
-    }
+            //damage = 0;
+        //}
+        //Debug.Log(damage);
+    //}
 
     public void PlayerTurnEnd()
     {
@@ -61,6 +65,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //アップデート内でターンの切り替えをしてはいけない為、別のvoidをつくるべし
         if(playerTurn == true)
         {
             if(playerMoveCounter == 0 || PLHP > 0)
@@ -73,7 +78,7 @@ public class GameManager : MonoBehaviour
             UiMg.EnemyTurn();
             if(playerMoveCounter == 1 || PLHP > 0)
             {
-                enemycs.AttackPlayer();
+                //enemycs.AttackPlayer();
             }
         }
     }
