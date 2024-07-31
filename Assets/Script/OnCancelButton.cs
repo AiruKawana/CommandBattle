@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OnSkillButton : MonoBehaviour
+public class OnCancelButton : MonoBehaviour
 {
     public UIManager UIMG;
     // Start is called before the first frame update
-    public void OnClickSkillButton()
+
+    public void OnClickCancelButton()
     {
-        UIMG.PushSkillButton();
+        UIMG.PushCancelButton();
     }
     void Start()
     {
