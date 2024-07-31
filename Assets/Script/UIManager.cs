@@ -195,7 +195,6 @@ public class UIManager : MonoBehaviour
         {
             enemyHp = 0;
             GSM.VictoryScene();
-            //Ÿ—˜‰æ–ÊƒV[ƒ“‚Ö‚ÌˆÚ€
         }
         if(playerHp < 0 || playerHp == 0)
         {

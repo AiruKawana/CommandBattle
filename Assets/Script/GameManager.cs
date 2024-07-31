@@ -30,25 +30,7 @@ public class GameManager : MonoBehaviour
         PLHP = UIMG.playerHp;
         PLSP = UIMG.playerSp;
         ENHP = UIMG.enemyHp;
-        //playercs = this.gameObject.GetComponent<Player>();
-        // PLHP = playercs.playerHp;
-        //PLSP = playercs.playerSp;
-
-        //enemycs = this.gameObject.GetComponent<Enemy>();
-        // ENHP = enemycs.enemyHp;
     }
-
-    //UIマネージャーの管轄の疑いにつき、一旦コメントアウト
-    //public void AttackEnemy()
-    //{
-       // damage = Random.Range(x, y);
-        //if(damage > 1)
-        //{
-            //敵のHP - Damageの記述
-            //damage = 0;
-        //}
-        //Debug.Log(damage);
-    //}
 
     public void PlayerTurnEnd()
     {
