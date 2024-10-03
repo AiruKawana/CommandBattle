@@ -43,6 +43,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject Item5;
     [SerializeField] public GameObject CancelButton;
 
+    public GameObject SelectEnemyText;
+    [SerializeField] public GameObject SelectEnemybutton1;
+    [SerializeField] public GameObject SelectEnemybutton2;
+
+    public bool selectEnemy1;
+    public bool selectEnemy2;
+
     public int damage;
     private int x = 1;
     private int y = 30;
@@ -91,6 +98,13 @@ public class UIManager : MonoBehaviour
         Item4.SetActive(false);
         Item5.SetActive(false);
         CancelButton.SetActive(false);
+
+        SelectEnemyText.SetActive(false);
+        SelectEnemybutton1.SetActive(false);
+        SelectEnemybutton2.SetActive(false);
+
+        selectEnemy1 = false;
+        selectEnemy2 = false;
 
         skillCheck = false;
         skillCount = 0;
@@ -146,6 +160,26 @@ public class UIManager : MonoBehaviour
             Debug.Log("ìGÇÃçUåÇÅF" + damage + "É_ÉÅÅ[ÉW");
             GM.EnemyTurnEnd();
         }
+    }
+
+    public void PushAttackButton()
+    {
+        attackButton.SetActive(false);
+        skillButton.SetActive(false);
+        toolButton.SetActive(false);
+
+        SelectEnemyText.SetActive(true);
+        SelectEnemybutton1.SetActive(true);
+        SelectEnemybutton2.SetActive(true);
+    }
+
+    public void PushScelectButton()
+    {
+        SelectEnemyText.SetActive(false);
+        SelectEnemybutton1.SetActive(false);
+        SelectEnemybutton2.SetActive(false);
+
+
     }
 
     public void PushSkillButton()
