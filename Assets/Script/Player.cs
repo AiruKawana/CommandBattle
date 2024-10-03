@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private StatusData statusData;
+    //[SerializeField] private StatusData statusData;
 
     [SerializeField] public int playerHp;
     [SerializeField] public int playerSp;
@@ -12,13 +12,13 @@ public class Player : MonoBehaviour
     private int itemCount = 5;
 
     public int damage;
-    private int x = 1;
-    private int y = 15;
+   // private int x = 1;
+    //private int y = 15;
     // Start is called before the first frame update
     void Start()
     {
-       playerHp = statusData.Hp;
-       playerSp = statusData.Sp;
+       //playerHp = statusData.Hp;
+       //playerSp = statusData.Sp;
         //MyItem();
     }
    // public void AttackEnemy()

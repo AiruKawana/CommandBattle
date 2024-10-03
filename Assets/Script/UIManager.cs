@@ -9,18 +9,32 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public GameManager GM;
     public GameSceneManager GSM;
-    
+
+    [SerializeField] private charadata playercharadata;
+    [SerializeField] private charadata player2charadata;
+    [SerializeField] private charadata enemycharadata;
+    [SerializeField] private charadata enemy2charadata;
 
     [SerializeField] public int playerHp;
     [SerializeField] public int playerSp;
     [SerializeField] public int enemyHp;
 
+    [SerializeField] public int player2Hp;
+    [SerializeField] public int player2Sp;
+    [SerializeField] public int enemy2Hp;
+
     [SerializeField] public GameObject attackButton;
     [SerializeField] public GameObject skillButton;
     [SerializeField] public GameObject toolButton;
+
      public TextMeshProUGUI MyHP_Text;
      public TextMeshProUGUI MySP_Text;
-     public TextMeshProUGUI EnemyHP_Text;
+
+    public TextMeshProUGUI MyHP_Text2;
+    public TextMeshProUGUI MySP_Text2;
+
+    public TextMeshProUGUI EnemyHP_Text;
+    public TextMeshProUGUI EnemyHP_Text2;
 
     [SerializeField] public GameObject Item1;
     [SerializeField] public GameObject Item2;
@@ -45,9 +59,27 @@ public class UIManager : MonoBehaviour
         skillButton.SetActive(true);
         toolButton.SetActive(true);
 
-        playerHp = 100;
-        playerSp = 25;
-        enemyHp = 100;
+        if(playercharadata != null)
+        {
+            playerHp = playercharadata.MAXHP;
+            playerSp = playercharadata.MAXSP;
+        }
+
+        if(player2charadata != null)
+        {
+            player2Hp = player2charadata.MAXHP;
+            player2Sp = player2charadata.MAXSP;
+        }
+
+        if(enemycharadata != null)
+        {
+            enemyHp = enemycharadata.MAXHP;
+        }
+
+        if(enemy2charadata != null)
+        {
+            enemy2Hp = enemy2charadata.MAXHP;
+        }
 
         MyHP_Text.text = "HP:" + playerHp;
         MySP_Text.text = "SP:" + playerSp;
@@ -70,7 +102,7 @@ public class UIManager : MonoBehaviour
         toolButton.SetActive(true);
     }
 
-    public void minusEnemyHp()
+    public void Playerattack()
     {
         damage = Random.Range(x, y);
         if (damage >= 1)
@@ -88,7 +120,7 @@ public class UIManager : MonoBehaviour
         toolButton.SetActive(false);
     }
 
-    public void minusPlayerHp()
+    public void Enemyattack()
     {
         damage = Random.Range(x, y);
         if(skillCheck == true && damage >= 1)
@@ -97,7 +129,7 @@ public class UIManager : MonoBehaviour
             {
                 skillCheck = false;
                 Debug.Log("ÉXÉLÉãå¯â éûä‘èIóπ");
-                minusPlayerHp();
+                Enemyattack();
             }
             else 
             {
@@ -188,10 +220,15 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         MyHP_Text.text = "HP:" + playerHp;
-        MySP_Text.text = "SP:" + playerSp;
-        EnemyHP_Text.text = "HP:" + enemyHp;
+        MyHP_Text2.text = "HP:" + player2Hp;
 
-        if(enemyHp < 0 || enemyHp == 0)
+        MySP_Text.text = "SP:" + playerSp;
+        MySP_Text2.text = "SP:" + player2Sp;
+
+        EnemyHP_Text.text = "HP:" + enemyHp;
+        EnemyHP_Text2.text = "HP:" + enemy2Hp;
+
+        if (enemyHp < 0 || enemyHp == 0)
         {
             enemyHp = 0;
             GSM.VictoryScene();

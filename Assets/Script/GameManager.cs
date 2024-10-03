@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour
     private int playerMoveCounter;
 
     public Player playercs;
-    public int PLHP;
-    public int PLSP;
+    [SerializeField] public int PLHP;
+    [SerializeField] public int PLSP;
     public GameObject PlayerObj;
 
      public Enemy enemycs;
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
             UIMG.EnemyTurn();
             if (playerMoveCounter == 1 && PLHP > 0)
             {
-                enemycs.AttackPlayer();
+                UIMG.Enemyattack();
             }
         }
     }

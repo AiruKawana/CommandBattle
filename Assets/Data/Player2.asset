@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ed3c299792944741b8fd52e9569ef55, type: 3}
-  m_Name: MainCharacterStatus
+  m_Script: {fileID: 11500000, guid: 87e5b7bd57bb16a4bb38986f6d98c1b2, type: 3}
+  m_Name: Player2
   m_EditorClassIdentifier: 
-  Maxhp: 100
-  Maxsp: 25
+  NAME: 
+  MAXHP: 100
+  MAXSP: 25
+  SKILLCOUNT: 0
+  AITEMCOUNT: 5

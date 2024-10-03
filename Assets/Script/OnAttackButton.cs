@@ -8,7 +8,7 @@ public class OnAttackButton : MonoBehaviour
     public UIManager UIMG;
     public void OnClickAttackButton()
     {
-        UIMG.minusEnemyHp();
+        UIMG.Playerattack();
         //gm.AttackEnemy();
         //gm.PlayerTurnEnd();
     }

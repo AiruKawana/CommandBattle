@@ -8,19 +8,19 @@ public class Enemy : MonoBehaviour
     public GameManager GM;
     public UIManager UIMG;
 
-    [SerializeField] public int enemyHp;
+    //[SerializeField] public int enemyHp;
 
-    [SerializeField] public int playerHp;
+    //[SerializeField] public int playerHp;
 
     private void Start()
     {
-        enemyHp = GM.ENHP;
-        playerHp = GM.PLHP;
+        //enemyHp = GM.ENHP;
+        //playerHp = GM.PLHP;
     }
 
     public void AttackPlayer()
     {
-        UIMG.minusPlayerHp();
+        UIMG.Enemyattack();
       // Debug.Log("ÉvÉåÉCÉÑÅ[Ç…çUåÇ");
     }
 }
