@@ -9,6 +9,5 @@ public class OnSelectEnemybutton1 : MonoBehaviour
     public void OnSelectEMYbutton1()
     {
         UIMG.PushScelectEnemyButton1();
-        //UIManager‚ÌPushScelectButton‚ÌŒã‚ÌPlayerattack‚Ì•ªŠòˆ—‚Ì’Ç‰Á‚ğŸ‰ñ
     }
 }

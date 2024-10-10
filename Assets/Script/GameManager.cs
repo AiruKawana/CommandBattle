@@ -15,11 +15,6 @@ public class GameManager : MonoBehaviour
 
     public int ENHP;
     public GameObject EnemyObj;
-
-    //private int damage;
-    //private int x = 1;
-    //private int y = 15;
-    // Start is called before the first frame update
     void Start()
     {
         playerTurn = true;
@@ -55,11 +50,5 @@ public class GameManager : MonoBehaviour
                 UIMG.PlayerTurn();
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
     }
 }

@@ -97,10 +97,6 @@ public class UIManager : MonoBehaviour
             enemy2Hp = enemy2charadata.MAXHP;
         }
 
-        //MyHP_Text.text = "HP:" + playerHp;
-        //MySP_Text.text = "SP:" + playerSp;
-        //EnemyHP_Text.text = "HP:" + enemyHp;
-
         Item1.SetActive(false);
         Item2.SetActive(false);
         Item3.SetActive(false);
@@ -261,14 +257,6 @@ public class UIManager : MonoBehaviour
         SelectPlayerText.SetActive(true);
         SelectPlayerbutton1.SetActive(true);
         SelectPlayerbutton2.SetActive(true);
-
-        //å„Ç…èëÇ´ä∑Ç¶
-        //Item1.SetActive(true);
-        //Item2.SetActive(true);
-        //Item3.SetActive(true);
-        //Item4.SetActive(true);
-        //Item5.SetActive(true);
-        //CancelButton.SetActive(true);
     }
 
     public void PushSelectPlayerbutton1()
