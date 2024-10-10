@@ -8,7 +8,8 @@ public class OnAttackButton : MonoBehaviour
     public UIManager UIMG;
     public void OnClickAttackButton()
     {
-        UIMG.Playerattack();
+        //UIMGÇÃPushAttackButtonÇ…å„ÅXïœçX
+        UIMG.PushAttackButton();
         //gm.AttackEnemy();
         //gm.PlayerTurnEnd();
     }

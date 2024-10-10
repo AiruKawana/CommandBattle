@@ -43,16 +43,25 @@ public class UIManager : MonoBehaviour
     [SerializeField] public GameObject Item5;
     [SerializeField] public GameObject CancelButton;
 
+    public GameObject SelectPlayerText;
+    [SerializeField] public GameObject SelectPlayerbutton1;
+    [SerializeField] public GameObject SelectPlayerbutton2;
+
     public GameObject SelectEnemyText;
     [SerializeField] public GameObject SelectEnemybutton1;
     [SerializeField] public GameObject SelectEnemybutton2;
 
+    public bool selectPlayer1;
+    public bool selectPlayer2;
+
     public bool selectEnemy1;
     public bool selectEnemy2;
 
-    public int damage;
+    private int damage;
+    private int selectPlayer;
     private int x = 1;
     private int y = 30;
+    private int z = 100;
 
     private int recoveryHp = 15;
 
@@ -88,9 +97,9 @@ public class UIManager : MonoBehaviour
             enemy2Hp = enemy2charadata.MAXHP;
         }
 
-        MyHP_Text.text = "HP:" + playerHp;
-        MySP_Text.text = "SP:" + playerSp;
-        EnemyHP_Text.text = "HP:" + enemyHp;
+        //MyHP_Text.text = "HP:" + playerHp;
+        //MySP_Text.text = "SP:" + playerSp;
+        //EnemyHP_Text.text = "HP:" + enemyHp;
 
         Item1.SetActive(false);
         Item2.SetActive(false);
@@ -99,10 +108,16 @@ public class UIManager : MonoBehaviour
         Item5.SetActive(false);
         CancelButton.SetActive(false);
 
+        SelectPlayerText.SetActive(false);
+        SelectPlayerbutton1.SetActive(false);
+        SelectPlayerbutton2.SetActive(false);
+
         SelectEnemyText.SetActive(false);
         SelectEnemybutton1.SetActive(false);
         SelectEnemybutton2.SetActive(false);
 
+        selectPlayer1 = false;
+        selectPlayer2 = false;
         selectEnemy1 = false;
         selectEnemy2 = false;
 
@@ -119,10 +134,18 @@ public class UIManager : MonoBehaviour
     public void Playerattack()
     {
         damage = Random.Range(x, y);
-        if (damage >= 1)
+        if (damage >= 1 && selectEnemy1 == true)
         {
             enemyHp -= damage;
             Debug.Log("Playerの攻撃：" + damage + "ダメージ");
+            selectEnemy1 = false;
+            GM.PlayerTurnEnd();
+        }
+        if (damage >= 1 && selectEnemy2 == true)
+        {
+            enemy2Hp -= damage;
+            Debug.Log("Playerの攻撃：" + damage + "ダメージ");
+            selectEnemy2 = false;
             GM.PlayerTurnEnd();
         }
     }
@@ -137,7 +160,8 @@ public class UIManager : MonoBehaviour
     public void Enemyattack()
     {
         damage = Random.Range(x, y);
-        if(skillCheck == true && damage >= 1)
+        selectPlayer = Random.Range(x, z);
+        if (skillCheck == true && damage >= 1)
         {
             if(skillCount == 0)
             {
@@ -156,9 +180,19 @@ public class UIManager : MonoBehaviour
         }
         if(skillCheck == false && damage >= 1)
         {
-            playerHp -= damage;
-            Debug.Log("敵の攻撃：" + damage + "ダメージ");
-            GM.EnemyTurnEnd();
+            if(selectPlayer >= 1 && selectPlayer < 49)
+            {
+                playerHp -= damage;
+                Debug.Log("敵の攻撃：" + damage + "ダメージ");
+                GM.EnemyTurnEnd();
+            }
+            if(selectPlayer >= 50)
+            {
+                player2Hp -= damage;
+                Debug.Log("敵の攻撃：" + damage + "ダメージ");
+                GM.EnemyTurnEnd();
+            }
+            
         }
     }
 
@@ -173,13 +207,22 @@ public class UIManager : MonoBehaviour
         SelectEnemybutton2.SetActive(true);
     }
 
-    public void PushScelectButton()
+    public void PushScelectEnemyButton1()
     {
+        selectEnemy1 = true;
+       SelectEnemyText.SetActive(false);
+       SelectEnemybutton1.SetActive(false);
+       SelectEnemybutton2.SetActive(false);
+       Playerattack();
+    }
+
+    public void PushScelectEnemyButton2()
+    {
+        selectEnemy2 = true;
         SelectEnemyText.SetActive(false);
         SelectEnemybutton1.SetActive(false);
         SelectEnemybutton2.SetActive(false);
-
-
+        Playerattack();
     }
 
     public void PushSkillButton()
@@ -215,6 +258,39 @@ public class UIManager : MonoBehaviour
         skillButton.SetActive(false);
         toolButton.SetActive(false);
 
+        SelectPlayerText.SetActive(true);
+        SelectPlayerbutton1.SetActive(true);
+        SelectPlayerbutton2.SetActive(true);
+
+        //後に書き換え
+        //Item1.SetActive(true);
+        //Item2.SetActive(true);
+        //Item3.SetActive(true);
+        //Item4.SetActive(true);
+        //Item5.SetActive(true);
+        //CancelButton.SetActive(true);
+    }
+
+    public void PushSelectPlayerbutton1()
+    {
+        selectPlayer1 = true;
+        SelectPlayerText.SetActive(false);
+        SelectPlayerbutton1.SetActive(false);
+        SelectPlayerbutton2.SetActive(false);
+        Item1.SetActive(true);
+        Item2.SetActive(true);
+        Item3.SetActive(true);
+        Item4.SetActive(true);
+        Item5.SetActive(true);
+        CancelButton.SetActive(true);
+    }
+
+    public void PushSelectPlayerbutton2()
+    {
+        selectPlayer2 = true;
+        SelectPlayerText.SetActive(false);
+        SelectPlayerbutton1.SetActive(false);
+        SelectPlayerbutton2.SetActive(false);
         Item1.SetActive(true);
         Item2.SetActive(true);
         Item3.SetActive(true);
@@ -225,18 +301,39 @@ public class UIManager : MonoBehaviour
 
     public void PushItemButton()
     {
-        if(playerHp >= 0 && enemyHp >= 0)
+        if(selectPlayer1 == true)
         {
-            playerHp += recoveryHp;
-            Debug.Log("プレイヤーのHPが" + recoveryHp + "回復した");
-            Item1.SetActive(false);
-            Item2.SetActive(false);
-            Item3.SetActive(false);
-            Item4.SetActive(false);
-            Item5.SetActive(false);
-            CancelButton.SetActive(false);
-            GM.PlayerTurnEnd();
+            if (playerHp >= 0 && enemyHp >= 0 || enemy2Hp >= 0)
+            {
+                playerHp += recoveryHp;
+                Debug.Log("プレイヤーのHPが" + recoveryHp + "回復した");
+                Item1.SetActive(false);
+                Item2.SetActive(false);
+                Item3.SetActive(false);
+                Item4.SetActive(false);
+                Item5.SetActive(false);
+                CancelButton.SetActive(false);
+                selectPlayer1 = false;
+                GM.PlayerTurnEnd();
+            }
         }
+        if(selectPlayer2 == true)
+        {
+            if (player2Hp >= 0 && enemyHp >= 0 || enemy2Hp >= 0)
+            {
+                player2Hp += recoveryHp;
+                Debug.Log("プレイヤーのHPが" + recoveryHp + "回復した");
+                Item1.SetActive(false);
+                Item2.SetActive(false);
+                Item3.SetActive(false);
+                Item4.SetActive(false);
+                Item5.SetActive(false);
+                CancelButton.SetActive(false);
+                selectPlayer2 = false;
+                GM.PlayerTurnEnd();
+            }
+        }
+        
     }
 
     public void PushCancelButton()
@@ -262,10 +359,18 @@ public class UIManager : MonoBehaviour
         EnemyHP_Text.text = "HP:" + enemyHp;
         EnemyHP_Text2.text = "HP:" + enemy2Hp;
 
-        if (enemyHp < 0 || enemyHp == 0)
+        if (enemyHp < 0 && enemy2Hp < 0)
         {
             enemyHp = 0;
             GSM.VictoryScene();
+        } else if(enemyHp < 0 || enemyHp == 0)
+        {
+            enemyHp = 0;
+            SelectEnemybutton1.SetActive(false);
+        } else if(enemy2Hp < 0 || enemy2Hp == 0)
+        {
+            enemy2Hp = 0;
+            SelectEnemybutton2.SetActive(false);
         }
         if(playerHp < 0 || playerHp == 0)
         {

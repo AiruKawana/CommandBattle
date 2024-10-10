@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class OnSelectEnemybutton2 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public UIManager UIMG;
+    public void OnSelectEMYbutton2()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        UIMG.PushScelectEnemyButton2();
     }
 }

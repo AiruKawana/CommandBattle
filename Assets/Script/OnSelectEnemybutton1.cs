@@ -8,10 +8,7 @@ public class OnSelectEnemybutton1 : MonoBehaviour
     // Start is called before the first frame update
     public void OnSelectEMYbutton1()
     {
-        GameObject obj = GameObject.Find("GM");
-        UIMG = obj.GetComponent<UIManager>();
-        UIMG.selectEnemy1 = true;
-        UIMG.PushScelectButton();
+        UIMG.PushScelectEnemyButton1();
         //UIManager‚ÌPushScelectButton‚ÌŒã‚ÌPlayerattack‚Ì•ªŠòˆ—‚Ì’Ç‰Á‚ğŸ‰ñ
     }
 }
