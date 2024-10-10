@@ -592,7 +592,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -226.75, y: -279.75}
+  m_AnchoredPosition: {x: -243.5, y: -279.75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &131627744
@@ -874,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 373.5, y: -275.75}
+  m_AnchoredPosition: {x: 343, y: -275.75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239199123
@@ -2195,7 +2195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79d4283253835b4eaab176173cce192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GM: {fileID: 1536737048}
   UIMG: {fileID: 1536737049}
 --- !u!1 &566328063
 GameObject:
@@ -5109,9 +5108,11 @@ MonoBehaviour:
   UIMG: {fileID: 1536737049}
   playerTurn: 1
   PLHP: 0
+  PL2HP: 0
   PLSP: 0
   PlayerObj: {fileID: 1311909810}
   ENHP: 0
+  EN2HP: 0
   EnemyObj: {fileID: 1767268257}
 --- !u!114 &1536737049
 MonoBehaviour:
