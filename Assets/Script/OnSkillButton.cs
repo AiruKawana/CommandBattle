@@ -10,14 +10,4 @@ public class OnSkillButton : MonoBehaviour
     {
         UIMG.PushSkillButton();
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

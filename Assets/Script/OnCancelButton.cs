@@ -11,14 +11,4 @@ public class OnCancelButton : MonoBehaviour
     {
         UIMG.PushCancelButton();
     }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

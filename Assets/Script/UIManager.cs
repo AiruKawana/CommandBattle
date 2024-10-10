@@ -359,9 +359,8 @@ public class UIManager : MonoBehaviour
         EnemyHP_Text.text = "HP:" + enemyHp;
         EnemyHP_Text2.text = "HP:" + enemy2Hp;
 
-        if (enemyHp < 0 && enemy2Hp < 0)
+        if (enemyHp <= 0 && enemy2Hp <= 0)
         {
-            enemyHp = 0;
             GSM.VictoryScene();
         } else if(enemyHp < 0 || enemyHp == 0)
         {
@@ -372,10 +371,19 @@ public class UIManager : MonoBehaviour
             enemy2Hp = 0;
             SelectEnemybutton2.SetActive(false);
         }
-        if(playerHp < 0 || playerHp == 0)
+
+        if(playerHp <= 0 && player2Hp <= 0)
         {
             playerHp = 0;
             GSM.LoseScene();
+        }else if (playerHp < 0 || playerHp == 0)
+        {
+            playerHp = 0;
+            SelectPlayerbutton1.SetActive(false);
+        }else if (player2Hp < 0 || player2Hp == 0)
+        {
+            player2Hp = 0;
+            SelectPlayerbutton2.SetActive(false);
         }
     }
 }

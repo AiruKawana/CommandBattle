@@ -9,12 +9,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool playerTurn;
     private int playerMoveCounter;
 
-    public Player playercs;
     [SerializeField] public int PLHP;
     [SerializeField] public int PLSP;
     public GameObject PlayerObj;
 
-     public Enemy enemycs;
     public int ENHP;
     public GameObject EnemyObj;
 
